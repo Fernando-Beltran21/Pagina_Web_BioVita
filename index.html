@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioVita · Bebida lacto-fermentada que convierte el lactosuero en bienestar</title>
+  <meta name="description" content="BioVita es una bebida funcional lacto-fermentada estilo Calpis, elaborada con lactosuero dulce rescatado de queserías de Aguascalientes y fortificada con probióticos, prebióticos, vitaminas y minerales.">
+  <meta name="theme-color" content="#0d2620">
+  <meta property="og:title" content="BioVita · Bebe lo bueno. Rescata lo valioso.">
+  <meta property="og:description" content="Bebida lacto-fermentada con probióticos hecha con lactosuero rescatado. Economía circular desde Aguascalientes.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+
+  <!-- DEV 1 · Base, layout y hero -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <!-- DEV 2 · Problema, solución, beneficios -->
+  <link rel="stylesheet" href="css/story.css">
+  <!-- DEV 3 · Proceso, sabores, impacto -->
+  <link rel="stylesheet" href="css/experience.css">
+  <!-- DEV 4 · Planes, equipo, FAQ, contacto, footer -->
+  <link rel="stylesheet" href="css/conversion.css">
+
+  <!-- Three.js vía import map (ES modules) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body class="is-locked">
+
+  <!-- ================= SPRITE DE ICONOS (DEV 1) ================= -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 5.65-7 10-7 10z"/></symbol>
+      <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"/><path d="M5 19c3-4 6-6 10-8"/></symbol>
+      <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"/></symbol>
+      <symbol id="i-capsule" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-35 12 12)"/><path d="M9.5 8.5l5 7"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></symbol>
+      <symbol id="i-pill" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></symbol>
+      <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M12 21V9"/><path d="M12 14c-3 0-4.5-2-4.5-4 2.2 0 4.5 1.2 4.5 4zM12 14c3 0 4.5-2 4.5-4-2.2 0-4.5 1.2-4.5 4zM12 9c-2.5 0-3.5-2-3.5-3.8C10.5 5.2 12 6.8 12 9zM12 9c2.5 0 3.5-2 3.5-3.8C13.5 5.2 12 6.8 12 9z"/></symbol>
+      <symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/></symbol>
+      <symbol id="i-nosugar" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M4 20L20 4"/></symbol>
+      <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.5 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1 2-2.5 2c-1 0-2-.5-2.5-1.5M12 6.5V8M12 16v1.5"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/></symbol>
+      <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/><path d="M7.5 14h9"/></symbol>
+      <symbol id="i-thermo" viewBox="0 0 24 24"><path d="M14 14.76V5a2 2 0 0 0-4 0v9.76a4 4 0 1 0 4 0z"/></symbol>
+      <symbol id="i-fire" viewBox="0 0 24 24"><path d="M12 21c4 0 7-2.7 7-6.5 0-4-3.5-6-4-10.5-2.5 2-4 4.5-4 7-1-1-1.5-2-1.5-3C7 9.5 5 12 5 14.5 5 18.3 8 21 12 21z"/></symbol>
+      <symbol id="i-fruit" viewBox="0 0 24 24"><path d="M12 7c-3-2-8-1-8 5s4 9 6 9c1 0 1.5-.5 2-.5s1 .5 2 .5c2 0 6-3 6-9s-5-7-8-5z"/><path d="M12 7c0-2 1-4 3-4"/></symbol>
+      <symbol id="i-bottle" viewBox="0 0 24 24"><path d="M10 2h4v3l2 3v12a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V8l2-3z"/><path d="M8 12h8"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9l2-5h14l2 5M4 9v11h16V9M3 9h18"/><path d="M9 20v-6h6v6"/></symbol>
+      <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-15.5 6.2M3 12A9 9 0 0 1 18.5 5.8"/><path d="M18.5 2v3.8h-3.8M5.5 22v-3.8h3.8"/></symbol>
+      <symbol id="i-cheese" viewBox="0 0 24 24"><path d="M3 17V11l13-6 5 6v6z"/><path d="M3 11h18"/><circle cx="9" cy="14" r="1"/><circle cx="15" cy="15" r="1.2"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+      <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></symbol>
+      <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.4 4.6 5 4.8"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+      <symbol id="i-logo" viewBox="0 0 40 40"><path d="M20 3S7 17.5 7 25.5a13 13 0 0 0 26 0C33 17.5 20 3 20 3z" fill="currentColor" stroke="none"/><path d="M14.5 27.5c0-5 3.5-8.8 9.5-9.2 0 6-3.8 9.7-9.5 9.2zM14.5 27.5c2-2.2 4.3-3.9 7-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ================= PRELOADER (DEV 1) ================= -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <svg class="preloader__drop" viewBox="0 0 64 84">
+      <defs><clipPath id="dropClip"><path d="M32 3S5 36 5 55a27 27 0 0 0 54 0C59 36 32 3 32 3z"/></clipPath></defs>
+      <g clip-path="url(#dropClip)">
+        <rect class="preloader__fill" x="-20" y="0" width="104" height="90"/>
+      </g>
+      <path d="M32 3S5 36 5 55a27 27 0 0 0 54 0C59 36 32 3 32 3z" fill="none" stroke="#3ad29f" stroke-width="2.5"/>
+    </svg>
+    <p class="preloader__brand">Bio<span>Vita</span></p>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ================= NAVEGACIÓN (DEV 1) ================= -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#inicio" class="logo" aria-label="BioVita, ir al inicio">
+        <svg><use href="#i-logo"/></svg>
+        <span>Bio<b>Vita</b></span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Navegación principal">
+        <a href="#problema">Problema</a>
+        <a href="#solucion">Solución</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#sabores">Sabores</a>
+        <a href="#impacto">Impacto</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#contacto" class="nav__mobile-only">Contacto</a>
+      </nav>
+      <a href="#planes" class="btn btn--primary btn--sm nav__cta">Pruébala</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         DEV 1 · HERO + ESCENA 3D
+         ===================================================== -->
+    <section class="hero" id="inicio">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="blob blob--3"></span>
+        <div class="dots"></div>
+      </div>
+
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <span class="eyebrow hero__anim" style="--i:0">Biotecnología hecha en Aguascalientes</span>
+          <h1 class="hero__title">
+            <span class="line"><span class="hero__anim" style="--i:1">Bebe lo bueno.</span></span>
+            <span class="line"><span class="hero__anim accent" style="--i:2">Rescata lo valioso.</span></span>
+          </h1>
+          <p class="hero__lead hero__anim" style="--i:3">
+            BioVita es una bebida <strong>lacto-fermentada y refrescante</strong>, inspirada en el estilo Calpis,
+            elaborada con lactosuero dulce rescatado de queserías locales y fortificada con
+            probióticos, prebióticos, vitaminas y minerales.
+          </p>
+          <div class="hero__actions hero__anim" style="--i:4">
+            <a class="btn btn--primary magnetic" href="#sabores">Descubre los sabores <svg><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost magnetic" href="#proceso">¿Cómo se hace?</a>
+          </div>
+          <ul class="hero__chips hero__anim" style="--i:5">
+            <li><i></i>Probióticos vivos</li>
+            <li><i style="--c:var(--flavor)"></i>Vitaminas y minerales</li>
+            <li><i style="--c:#5aa9ff"></i>Economía circular</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual">
+          <div class="three-stage" id="heroStage" aria-label="Botella 3D de BioVita" role="img">
+            <div class="bottle-fallback" aria-hidden="true"><span>BioVita</span></div>
+          </div>
+          <div class="float-card float-card--a">
+            <svg><use href="#i-bottle"/></svg>
+            <div>350 ml<small>Lista para tomar</small></div>
+          </div>
+          <div class="float-card float-card--b">
+            <svg><use href="#i-cycle"/></svg>
+            <div>Cero desperdicio<small>Lactosuero revalorizado</small></div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#problema" class="scroll-cue" aria-label="Desplázate hacia abajo">
+        <span class="scroll-cue__mouse"><span></span></span>
+        <span>Desliza</span>
+      </a>
+    </section>
+
+
+    <!-- =====================================================
+         DEV 2 · PROBLEMA
+         ===================================================== -->
+    <section class="section section--dark problem" id="problema">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>El problema</span>
+          <h2 class="h2" data-split>Un residuo que contamina y un bienestar que <em class="accent">no llega a todos.</em></h2>
+          <p data-reveal style="--d:200ms">La industria quesera y la salud digestiva comparten una historia que casi nadie cuenta.</p>
+        </div>
+
+        <div class="problem__grid">
+          <article class="p-card" data-reveal="left">
+            <div class="p-card__icon"><svg><use href="#i-globe"/></svg></div>
+            <h3>El planeta paga el queso</h3>
+            <p>Por cada kilogramo de queso se generan entre <strong>9 y 10 litros de lactosuero</strong>. Gran parte se vierte sin tratamiento en drenajes y cuerpos de agua, provocando eutrofización y pérdida de oxígeno.</p>
+
+            <div class="meter" data-meter>
+              <p class="meter__title">Carga orgánica (DQO · mg/L)</p>
+              <div class="meter__row">
+                <span>Agua residual doméstica</span>
+                <div class="meter__bar"><i data-value="600" data-max="70000"></i></div>
+                <b>≈ 600</b>
+              </div>
+              <div class="meter__row meter__row--danger">
+                <span>Lactosuero dulce</span>
+                <div class="meter__bar"><i data-value="70000" data-max="70000"></i></div>
+                <b>50k – 70k</b>
+              </div>
+              <p class="meter__note">Hasta <strong>100 veces</strong> más carga contaminante.</p>
+            </div>
+          </article>
+
+          <article class="p-card" data-reveal="right" style="--d:120ms">
+            <div class="p-card__icon p-card__icon--alt"><svg><use href="#i-heart"/></svg></div>
+            <h3>Tu intestino también lo resiente</h3>
+            <p>Los padecimientos digestivos van en aumento, pero los productos probióticos suelen tener un <strong>costo elevado</strong> que limita su consumo frecuente en sectores de ingresos medios y bajos.</p>
+            <ul class="p-list">
+              <li><svg><use href="#i-x"/></svg>Desequilibrios gastrointestinales en aumento</li>
+              <li><svg><use href="#i-x"/></svg>Probióticos de precio alto</li>
+              <li><svg><use href="#i-x"/></svg>Poca oferta funcional y accesible</li>
+              <li><svg><use href="#i-x"/></svg>Bebidas azucaradas sin beneficio real</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="problem__question" data-split>¿Y si el residuo <em class="accent">fuera la solución?</em></p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DEV 2 · SOLUCIÓN (ECONOMÍA CIRCULAR)
+         ===================================================== -->
+    <section class="section solution" id="solucion">
+      <div class="container">
+        <div class="solution__top">
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>La solución</span>
+            <h2 class="h2" data-split>Del residuo al <em class="accent">superalimento.</em></h2>
+            <p data-reveal style="--d:150ms">Mediante fermentación controlada valorizamos las proteínas séricas, la lactosa y los minerales del lactosuero dulce para crear una bebida de alto valor biológico, reduciendo el impacto ambiental de su desecho.</p>
+
+            <div class="model-switch" role="tablist" aria-label="Comparar modelos" data-reveal style="--d:250ms">
+              <button role="tab" data-model="linear" aria-selected="true">Modelo lineal</button>
+              <button role="tab" data-model="circular" aria-selected="false">Modelo BioVita</button>
+              <span class="model-switch__pill" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="model-stage" data-active="linear" data-reveal="zoom" style="--d:200ms">
+            <!-- Lineal -->
+            <div class="model model--linear" aria-hidden="false">
+              <div class="lnode"><span><svg><use href="#i-drop"/></svg></span>Leche</div>
+              <i class="lline"></i>
+              <div class="lnode"><span><svg><use href="#i-cheese"/></svg></span>Queso</div>
+              <i class="lline"></i>
+              <div class="lnode"><span><svg><use href="#i-drop"/></svg></span>Lactosuero</div>
+              <i class="lline lline--bad"></i>
+              <div class="lnode lnode--bad"><span><svg><use href="#i-x"/></svg></span>Drenaje</div>
+              <p class="model__caption">Producir queso → desechar suero → contaminar agua.</p>
+            </div>
+            <!-- Circular -->
+            <div class="model model--circular" aria-hidden="true">
+              <svg class="ring" viewBox="0 0 400 400" aria-hidden="true">
+                <circle cx="200" cy="200" r="150" />
+              </svg>
+              <div class="cnode cnode--1"><span><svg><use href="#i-cheese"/></svg></span>Queserías locales</div>
+              <div class="cnode cnode--2"><span><svg><use href="#i-flask"/></svg></span>Fermentación</div>
+              <div class="cnode cnode--3"><span><svg><use href="#i-bottle"/></svg></span>BioVita</div>
+              <div class="cnode cnode--4"><span><svg><use href="#i-heart"/></svg></span>Tu bienestar</div>
+              <div class="ccenter"><svg><use href="#i-logo"/></svg><b>Economía<br>circular</b></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="values" data-stagger>
+          <article class="value" data-reveal>
+            <span class="value__n">01</span>
+            <svg><use href="#i-leaf"/></svg>
+            <h3>Sostenibilidad ambiental</h3>
+            <p>Revalorizamos el lactosuero dulce y reducimos el impacto contaminante del residuo lácteo.</p>
+          </article>
+          <article class="value" data-reveal>
+            <span class="value__n">02</span>
+            <svg><use href="#i-heart"/></svg>
+            <h3>Nutrición y salud</h3>
+            <p>Bebida fermentada enriquecida con nutrientes esenciales y propiedades funcionales.</p>
+          </article>
+          <article class="value" data-reveal>
+            <span class="value__n">03</span>
+            <svg><use href="#i-spark"/></svg>
+            <h3>Innovación accesible</h3>
+            <p>Al usar una materia prima de costo casi nulo, ofrecemos calidad funcional a precio competitivo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DEV 2 · BENEFICIOS
+         ===================================================== -->
+    <section class="section benefits" id="beneficios">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="eyebrow" data-reveal>Beneficios</span>
+          <h2 class="h2" data-split>Todo lo bueno, <em class="accent">en 350 ml.</em></h2>
+          <p data-reveal style="--d:150ms">Una bebida refrescante con un perfil nutricional pensado para tu día a día.</p>
+        </div>
+
+        <div class="benefits__grid" data-stagger>
+          <article class="b-card b-card--feature" data-reveal>
+            <span class="b-card__icon"><svg><use href="#i-capsule"/></svg></span>
+            <h3>Probióticos vivos</h3>
+            <p>Cultivos de <em>Lactobacillus</em> que apoyan el equilibrio de tu microbiota intestinal.</p>
+          </article>
+          <article class="b-card" data-reveal>
+            <span class="b-card__icon"><svg><use href="#i-wheat"/></svg></span>
+            <h3>Prebióticos</h3>
+            <p>Fibra soluble como la inulina que alimenta a las bacterias buenas.</p>
+          </article>
+          <article class="b-card" data-reveal>
+            <span class="b-card__icon"><svg><use href="#i-dumbbell"/></svg></span>
+            <h3>Proteína sérica</h3>
+            <p>Aminoácidos de alto valor biológico provenientes del suero de leche.</p>
+          </article>
+          <article class="b-card" data-reveal>
+            <span class="b-card__icon"><svg><use href="#i-bolt"/></svg></span>
+            <h3>Electrolitos naturales</h3>
+            <p>Potasio, calcio, magnesio y fósforo presentes de forma natural en el lactosuero.</p>
+          </article>
+          <article class="b-card" data-reveal>
+            <span class="b-card__icon"><svg><use href="#i-pill"/></svg></span>
+            <h3>Vitaminas y minerales</h3>
+            <p>Fortificada para complementar tu ingesta diaria recomendada.</p>
+          </article>
+          <article class="b-card" data-reveal>
+            <span class="b-card__icon"><svg><use href="#i-nosugar"/></svg></span>
+            <h3>Bajo en azúcar</h3>
+            <p>Dulzor natural de la fruta y endulzantes como estevia o fruta del monje.</p>
+          </article>
+          <article class="b-card" data-reveal>
+            <span class="b-card__icon"><svg><use href="#i-shield"/></svg></span>
+            <h3>Sin conservadores artificiales</h3>
+            <p>La fermentación baja el pH de forma natural y protege la bebida.</p>
+          </article>
+          <article class="b-card" data-reveal>
+            <span class="b-card__icon"><svg><use href="#i-coin"/></svg></span>
+            <h3>Precio accesible</h3>
+            <p>Bienestar funcional que cabe en tu bolsillo, todos los días.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Banda marquee (DEV 2) -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Probióticos</span><i>✦</i><span>Prebióticos</span><i>✦</i><span>Economía circular</span><i>✦</i><span>Hecho en Aguascalientes</span><i>✦</i><span>Cero desperdicio</span><i>✦</i>
+        <span>Probióticos</span><i>✦</i><span>Prebióticos</span><i>✦</i><span>Economía circular</span><i>✦</i><span>Hecho en Aguascalientes</span><i>✦</i><span>Cero desperdicio</span><i>✦</i>
+      </div>
+    </div>
+
+
+    <!-- =====================================================
+         DEV 3 · PROCESO
+         ===================================================== -->
+    <section class="section section--dark process" id="proceso">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="eyebrow" data-reveal>Del suero a tu mano</span>
+          <h2 class="h2" data-split>Un proceso <em class="accent">biotecnológico</em> en 5 pasos.</h2>
+          <p data-reveal style="--d:150ms">Cada botella pasa por un proceso controlado de temperatura, tiempo y pH bajo la NOM-251-SSA1-2009.</p>
+        </div>
+
+        <ol class="timeline" id="timeline">
+          <li class="step" data-reveal="left">
+            <span class="step__dot">01</span>
+            <div class="step__card">
+              <svg><use href="#i-cheese"/></svg>
+              <h3>Recolección</h3>
+              <p>Recibimos el lactosuero dulce de queserías locales de Aguascalientes, con protocolos de enfriamiento desde el origen.</p>
+              <span class="chip">Queserías aliadas</span>
+            </div>
+          </li>
+          <li class="step" data-reveal="right">
+            <span class="step__dot">02</span>
+            <div class="step__card">
+              <svg><use href="#i-fire"/></svg>
+              <h3>Pasteurización</h3>
+              <p>Filtramos y pasteurizamos el suero para eliminar microorganismos no deseados y garantizar su inocuidad.</p>
+              <span class="chip">Inocuidad</span>
+            </div>
+          </li>
+          <li class="step" data-reveal="left">
+            <span class="step__dot">03</span>
+            <div class="step__card">
+              <svg><use href="#i-flask"/></svg>
+              <h3>Fermentación</h3>
+              <p>Inoculamos un co-cultivo de <em>Lactobacillus</em>. El pH desciende de forma natural y se desarrollan las propiedades funcionales.</p>
+              <span class="chip">pH · °Brix monitoreados</span>
+            </div>
+          </li>
+          <li class="step" data-reveal="right">
+            <span class="step__dot">04</span>
+            <div class="step__card">
+              <svg><use href="#i-fruit"/></svg>
+              <h3>Sabor y fortificación</h3>
+              <p>Añadimos pulpa de fruta, vitaminas, minerales e inulina en condiciones de asepsia para lograr un sabor sedoso y refrescante.</p>
+              <span class="chip">Frutas + vitaminas</span>
+            </div>
+          </li>
+          <li class="step" data-reveal="left">
+            <span class="step__dot">05</span>
+            <div class="step__card">
+              <svg><use href="#i-thermo"/></svg>
+              <h3>Envasado en frío</h3>
+              <p>Envasamos herméticamente en botellas estériles, etiquetamos por lote y mantenemos la cadena de frío hasta tu mano.</p>
+              <span class="chip">Cadena de frío 4 °C</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DEV 3 · SABORES (ESCENA 3D INTERACTIVA)
+         ===================================================== -->
+    <section class="section flavors" id="sabores">
+      <div class="flavors__bgword" aria-hidden="true"><span id="flavorBgWord">Frutos Rojos</span></div>
+      <div class="container flavors__grid">
+        <div class="flavors__visual" data-reveal="zoom">
+          <div class="three-stage" id="flavorStage" aria-label="Botella 3D interactiva: arrastra para girar" role="img">
+            <div class="bottle-fallback" aria-hidden="true"><span>BioVita</span></div>
+          </div>
+          <p class="flavors__hint"><svg><use href="#i-cycle"/></svg> Arrastra para girar</p>
+        </div>
+
+        <div class="flavors__info">
+          <span class="eyebrow" data-reveal>Sabores</span>
+          <h2 class="h2" data-split>Elige tu <em class="accent">sabor.</em></h2>
+
+          <div class="flavor-detail" id="flavorDetail" aria-live="polite" data-reveal style="--d:150ms">
+            <p class="flavor-detail__tag" data-field="tagline">Intenso y antioxidante</p>
+            <h3 class="flavor-detail__name" data-field="name">Frutos Rojos</h3>
+            <p class="flavor-detail__desc" data-field="description">Fresa, frambuesa y zarzamora sobre una base cremosa y ligeramente ácida.</p>
+            <ul class="flavor-detail__notes" data-field="notes"></ul>
+          </div>
+
+          <div class="flavor-picker" role="group" aria-label="Seleccionar sabor" data-reveal style="--d:250ms">
+            <button class="swatch is-active" data-flavor="frutos-rojos" aria-pressed="true"><i style="--c:#e0325f"></i>Frutos rojos</button>
+            <button class="swatch" data-flavor="mango" aria-pressed="false"><i style="--c:#f59e0b"></i>Mango</button>
+            <button class="swatch" data-flavor="guayaba" aria-pressed="false"><i style="--c:#ef6f6c"></i>Guayaba</button>
+            <button class="swatch" data-flavor="citricos" aria-pressed="false"><i style="--c:#7cc22e"></i>Cítricos</button>
+          </div>
+          <p class="flavors__season" data-reveal style="--d:300ms"><svg><use href="#i-spark"/></svg> Sabores de temporada muy pronto.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DEV 3 · IMPACTO + ODS
+         ===================================================== -->
+    <section class="section impact" id="impacto">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="eyebrow" data-reveal>Impacto</span>
+          <h2 class="h2" data-split>Números que <em class="accent">nos mueven.</em></h2>
+        </div>
+
+        <div class="stats" data-stagger>
+          <div class="stat" data-reveal>
+            <p class="stat__num"><span class="counter" data-to="10">0</span><small>L</small></p>
+            <p class="stat__label">de lactosuero por cada kilo de queso que buscamos rescatar</p>
+          </div>
+          <div class="stat" data-reveal>
+            <p class="stat__num"><span class="counter" data-to="100">0</span><small>×</small></p>
+            <p class="stat__label">más carga orgánica que el agua residual doméstica</p>
+          </div>
+          <div class="stat" data-reveal>
+            <p class="stat__num"><span class="counter" data-to="100153">0</span></p>
+            <p class="stat__label">consumidores potenciales en Aguascalientes (TAM)</p>
+          </div>
+          <div class="stat" data-reveal>
+            <p class="stat__num"><span class="counter" data-to="2.5" data-decimals="1">0</span><small>M</small></p>
+            <p class="stat__label">botellas de 350 ml al año de mercado disponible (SAM)</p>
+          </div>
+        </div>
+
+        <div class="ods">
+          <h3 class="ods__title" data-reveal>Alineados con los Objetivos de Desarrollo Sostenible</h3>
+          <div class="ods__grid" data-stagger>
+            <article class="ods-card" data-reveal style="--ods:#4c9f38">
+              <span class="ods-card__n">3</span>
+              <h4>Salud y bienestar</h4>
+              <p>Perfil nutricional funcional que promueve la salud digestiva, con bajo o nulo azúcar añadido y conteo adecuado de lactobacilos durante toda su vida útil.</p>
+            </article>
+            <article class="ods-card" data-reveal style="--ods:#fd6925">
+              <span class="ods-card__n">9</span>
+              <h4>Industria, innovación e infraestructura</h4>
+              <p>Tecnología de procesamiento, monitoreo de variables críticas y colaboración con universidades para validar calidad y escalar.</p>
+            </article>
+            <article class="ods-card" data-reveal style="--ods:#bf8b2e">
+              <span class="ods-card__n">12</span>
+              <h4>Producción y consumo responsables</h4>
+              <p>Revalorización del lactosuero, frutas de productores locales y envases reciclables o fáciles de reciclar.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DEV 4 · PLANES / DÓNDE COMPRAR
+         ===================================================== -->
+    <section class="section plans" id="planes">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="eyebrow" data-reveal>Consíguela</span>
+          <h2 class="h2" data-split>Tu dosis de bienestar, <em class="accent">como prefieras.</em></h2>
+          <p data-reveal style="--d:150ms">En tu cafetería o gimnasio favorito, o directo a tu puerta cada semana.</p>
+        </div>
+
+        <div class="qty-toggle" role="group" aria-label="Botellas por semana" data-reveal style="--d:200ms">
+          <span>Botellas por semana:</span>
+          <button data-qty="1" class="is-active" aria-pressed="true">1</button>
+          <button data-qty="3" aria-pressed="false">3</button>
+          <button data-qty="5" aria-pressed="false">5</button>
+        </div>
+
+        <div class="plans__grid" data-stagger>
+          <article class="plan" data-reveal>
+            <span class="plan__icon"><svg><use href="#i-store"/></svg></span>
+            <h3>Compra individual</h3>
+            <p class="plan__price"><span class="plan__currency">$</span>25<span class="plan__per">MXN / botella</span></p>
+            <ul>
+              <li><svg><use href="#i-check"/></svg>Cafeterías y restaurantes</li>
+              <li><svg><use href="#i-check"/></svg>Gimnasios</li>
+              <li><svg><use href="#i-check"/></svg>Tiendas de conveniencia y supermercados</li>
+            </ul>
+            <a href="#contacto" class="btn btn--ghost">Ver puntos de venta</a>
+          </article>
+
+          <article class="plan plan--featured" data-reveal>
+            <span class="plan__badge">Más popular</span>
+            <span class="plan__icon"><svg><use href="#i-truck"/></svg></span>
+            <h3>Suscripción mensual</h3>
+            <p class="plan__price"><span class="plan__currency">$</span><span id="subPrice" data-prices='{"1":90,"3":250,"5":399}'>90</span><span class="plan__per">MXN / mes</span></p>
+            <p class="plan__save" id="subSave">≈ $22.50 por botella · ahorras 10%</p>
+            <ul>
+              <li><svg><use href="#i-check"/></svg>Entrega semanal a domicilio</li>
+              <li><svg><use href="#i-check"/></svg>Combina sabores cada semana</li>
+              <li><svg><use href="#i-check"/></svg>Acceso anticipado a sabores de temporada</li>
+            </ul>
+            <a href="#contacto" class="btn btn--light">Quiero suscribirme <svg><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="plan" data-reveal>
+            <span class="plan__icon"><svg><use href="#i-cycle"/></svg></span>
+            <h3>Para negocios</h3>
+            <p class="plan__price plan__price--text">A tu medida</p>
+            <ul>
+              <li><svg><use href="#i-check"/></svg>Precio de mayoreo</li>
+              <li><svg><use href="#i-check"/></svg>Material de punto de venta</li>
+              <li><svg><use href="#i-check"/></svg>Exclusividad por zona</li>
+            </ul>
+            <a href="#contacto" class="btn btn--ghost">Quiero distribuir</a>
+          </article>
+        </div>
+        <p class="plans__note" data-reveal>*Precios de lanzamiento estimados, sujetos a validación del estudio de mercado.</p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DEV 4 · EQUIPO
+         ===================================================== -->
+    <section class="section team" id="equipo">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="eyebrow" data-reveal>Equipo</span>
+          <h2 class="h2" data-split>Ciencia y tecnología <em class="accent">en equipo.</em></h2>
+          <p data-reveal style="--d:150ms">Ocho estudiantes de la Universidad Autónoma de Aguascalientes, de cuatro carreras distintas, unidos por una idea.</p>
+        </div>
+
+        <div class="team-filter" role="group" aria-label="Filtrar por área" data-reveal style="--d:200ms">
+          <button class="is-active" data-filter="all" aria-pressed="true">Todos</button>
+          <button data-filter="bio" aria-pressed="false">Biotecnología</button>
+          <button data-filter="qfb" aria-pressed="false">QFB</button>
+          <button data-filter="tec" aria-pressed="false">Tecnología</button>
+        </div>
+
+        <div class="team__grid" data-stagger>
+          <article class="member" data-area="bio" data-reveal><span class="member__avatar">DH</span><h3>Diana Elena Hernández Alfaro</h3><p>Lic. en Biotecnología</p></article>
+          <article class="member" data-area="bio" data-reveal><span class="member__avatar">HJ</span><h3>Hanna Daniela Jáuregui Lara</h3><p>Lic. en Biotecnología</p></article>
+          <article class="member" data-area="qfb" data-reveal><span class="member__avatar">AR</span><h3>America Guadalupe Rosales González</h3><p>Químico Farmacéutico Biólogo</p></article>
+          <article class="member" data-area="qfb" data-reveal><span class="member__avatar">JR</span><h3>Jesús Omar Rosales Maldonado</h3><p>Químico Farmacéutico Biólogo</p></article>
+          <article class="member" data-area="tec" data-reveal><span class="member__avatar">UR</span><h3>Uriel Rodríguez Guadarrama</h3><p>Ing. en Sistemas Computacionales</p></article>
+          <article class="member" data-area="tec" data-reveal><span class="member__avatar">FB</span><h3>Fernando Beltrán Arroyo</h3><p>Lic. en Informática y Tecnologías Computacionales</p></article>
+          <article class="member" data-area="tec" data-reveal><span class="member__avatar">JC</span><h3>Jorge Cabrera Dueñas</h3><p>Lic. en Informática y Tecnologías Computacionales</p></article>
+          <article class="member" data-area="tec" data-reveal><span class="member__avatar">CV</span><h3>Carlos Brayan Valles Rodríguez</h3><p>Lic. en Informática y Tecnologías Computacionales</p></article>
+        </div>
+
+        <div class="mentor" data-reveal>
+          <svg><use href="#i-spark"/></svg>
+          <p>Proyecto desarrollado en la materia <strong>Desarrollo de emprendedores</strong> · Centro de Ciencias Básicas, UAA · Asesor: <strong>Mtro. Luis Miguel Negrete Enciso</strong></p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DEV 4 · PREGUNTAS FRECUENTES
+         ===================================================== -->
+    <section class="section faq" id="faq">
+      <div class="container faq__grid">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>FAQ</span>
+          <h2 class="h2" data-split>Preguntas <em class="accent">frecuentes.</em></h2>
+          <p data-reveal style="--d:150ms">¿Tienes otra duda? Escríbenos en la sección de contacto.</p>
+        </div>
+
+        <div class="accordion" data-stagger>
+          <div class="acc-item" data-reveal>
+            <button class="acc-item__q" aria-expanded="false">¿Qué es el lactosuero?<span><svg><use href="#i-plus"/></svg></span></button>
+            <div class="acc-item__a"><div><p>Es el líquido que queda al elaborar queso. Contiene proteínas séricas, lactosa y minerales valiosos que normalmente se desechan. Nosotros lo convertimos en una bebida funcional.</p></div></div>
+          </div>
+          <div class="acc-item" data-reveal>
+            <button class="acc-item__q" aria-expanded="false">¿Sabe a queso?<span><svg><use href="#i-plus"/></svg></span></button>
+            <div class="acc-item__a"><div><p>¡No! Su perfil es refrescante, ligeramente ácido y cremoso, al estilo Calpis. Las pulpas de fruta equilibran el sabor y lo hacen muy agradable.</p></div></div>
+          </div>
+          <div class="acc-item" data-reveal>
+            <button class="acc-item__q" aria-expanded="false">¿Es seguro tomar algo hecho con un subproducto?<span><svg><use href="#i-plus"/></svg></span></button>
+            <div class="acc-item__a"><div><p>Sí. El lactosuero se pasteuriza y todo el proceso sigue las buenas prácticas de higiene de la NOM-251-SSA1-2009, con control de temperatura, tiempo, pH y cadena de frío.</p></div></div>
+          </div>
+          <div class="acc-item" data-reveal>
+            <button class="acc-item__q" aria-expanded="false">¿Contiene lactosa?<span><svg><use href="#i-plus"/></svg></span></button>
+            <div class="acc-item__a"><div><p>Es un derivado lácteo, por lo que contiene lactosa y proteína de leche. La fermentación reduce parte de la lactosa, pero no se recomienda para personas alérgicas a la proteína de la leche. Estamos explorando una versión deslactosada.</p></div></div>
+          </div>
+          <div class="acc-item" data-reveal>
+            <button class="acc-item__q" aria-expanded="false">¿Necesita refrigeración?<span><svg><use href="#i-plus"/></svg></span></button>
+            <div class="acc-item__a"><div><p>Sí. Para conservar los probióticos vivos y su sabor, mantenla refrigerada a 4 °C y consúmela antes de la fecha indicada en la etiqueta.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DEV 4 · CONTACTO / LISTA DE ESPERA
+         ===================================================== -->
+    <section class="section contact" id="contacto">
+      <div class="contact__bg" aria-hidden="true"></div>
+      <div class="container contact__grid">
+        <div class="contact__copy">
+          <span class="eyebrow" data-reveal>Lista de espera</span>
+          <h2 class="h2" data-split>Sé de los primeros en <em class="accent">probarla.</em></h2>
+          <p data-reveal style="--d:150ms">Déjanos tus datos y te avisaremos de degustaciones, puntos de venta y promociones de lanzamiento.</p>
+          <ul class="contact__perks" data-stagger>
+            <li data-reveal><svg><use href="#i-check"/></svg>Degustaciones en campus y gimnasios</li>
+            <li data-reveal><svg><use href="#i-check"/></svg>Descuento en tu primera suscripción</li>
+            <li data-reveal><svg><use href="#i-check"/></svg>Vota por el próximo sabor de temporada</li>
+          </ul>
+        </div>
+
+        <div class="form-card" data-reveal="right">
+          <form class="form" id="leadForm" novalidate>
+            <div class="field">
+              <label for="fName">Nombre</label>
+              <input id="fName" name="name" type="text" autocomplete="name" placeholder="Tu nombre" required minlength="2">
+              <small class="field__error"></small>
+            </div>
+            <div class="field">
+              <label for="fEmail">Correo electrónico</label>
+              <input id="fEmail" name="email" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
+              <small class="field__error"></small>
+            </div>
+            <div class="field">
+              <label for="fCity">Municipio</label>
+              <select id="fCity" name="city" required>
+                <option value="">Selecciona tu municipio</option>
+                <option>Aguascalientes</option>
+                <option>Jesús María</option>
+                <option>Calvillo</option>
+                <option>Pabellón de Arteaga</option>
+                <option>Rincón de Romos</option>
+                <option>San Francisco de los Romo</option>
+                <option>Otro</option>
+              </select>
+              <small class="field__error"></small>
+            </div>
+            <fieldset class="field field--radios">
+              <legend>Sabor que más quieres probar</legend>
+              <div class="radios">
+                <label><input type="radio" name="flavor" value="frutos-rojos" checked><span style="--c:#e0325f">Frutos rojos</span></label>
+                <label><input type="radio" name="flavor" value="mango"><span style="--c:#f59e0b">Mango</span></label>
+                <label><input type="radio" name="flavor" value="guayaba"><span style="--c:#ef6f6c">Guayaba</span></label>
+                <label><input type="radio" name="flavor" value="citricos"><span style="--c:#7cc22e">Cítricos</span></label>
+              </div>
+            </fieldset>
+            <label class="check">
+              <input type="checkbox" name="business">
+              <span>Quiero información para distribuir en mi negocio</span>
+            </label>
+            <button type="submit" class="btn btn--primary btn--block">Unirme a la lista <svg><use href="#i-arrow"/></svg></button>
+          </form>
+
+          <div class="form-success" id="formSuccess" aria-live="polite">
+            <svg class="form-success__check" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-15"/></svg>
+            <h3>¡Gracias, <span id="successName">amig@</span>!</h3>
+            <p>Ya estás en la lista. Muy pronto te contaremos dónde probar BioVita.</p>
+            <button class="btn btn--ghost btn--sm" id="formReset">Registrar a alguien más</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- =====================================================
+       DEV 4 · FOOTER
+       ===================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#inicio" class="logo logo--light"><svg><use href="#i-logo"/></svg><span>Bio<b>Vita</b></span></a>
+          <p>Bebida funcional lacto-fermentada elaborada con lactosuero dulce revalorizado. Economía circular desde Aguascalientes.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram de BioVita"><svg><use href="#i-insta"/></svg></a>
+            <a href="#" aria-label="TikTok de BioVita"><svg><use href="#i-tiktok"/></svg></a>
+            <a href="#contacto" aria-label="Escríbenos"><svg><use href="#i-mail"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Explora</h4>
+          <a href="#problema">Problema</a>
+          <a href="#solucion">Solución</a>
+          <a href="#beneficios">Beneficios</a>
+          <a href="#proceso">Proceso</a>
+        </div>
+        <div class="footer__col">
+          <h4>BioVita</h4>
+          <a href="#sabores">Sabores</a>
+          <a href="#planes">Suscripción</a>
+          <a href="#equipo">Equipo</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer__col">
+          <h4>Dónde estamos</h4>
+          <p><svg><use href="#i-pin"/></svg>Universidad Autónoma de Aguascalientes, Ags., México</p>
+        </div>
+      </div>
+
+      <p class="footer__word" aria-hidden="true">BioVita</p>
+
+      <div class="footer__bottom">
+        <p>© <span id="year">2026</span> BioVita · Proyecto académico UAA. Información nutrimental final conforme a la NOM-051-SCFI/SSA1-2010.</p>
+        <button class="to-top" id="toTop" aria-label="Volver arriba"><svg><use href="#i-up"/></svg></button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <!-- Datos compartidos (DEV 3) -->
+  <script src="js/data/flavors.js" defer></script>
+  <!-- Núcleo: preloader, nav, reveal, utilidades (DEV 1) -->
+  <script src="js/core/main.js" defer></script>
+  <!-- Secciones -->
+  <script src="js/sections/story.js" defer></script>       <!-- DEV 2 -->
+  <script src="js/sections/experience.js" defer></script>  <!-- DEV 3 -->
+  <script src="js/sections/conversion.js" defer></script>  <!-- DEV 4 -->
+  <!-- Escenas Three.js (ES modules) -->
+  <script type="module" src="js/three/hero-scene.js"></script>    <!-- DEV 1 -->
+  <script type="module" src="js/three/flavor-scene.js"></script>  <!-- DEV 3 -->
+</body>
+</html>

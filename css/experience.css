@@ -1,0 +1,169 @@
+/* =========================================================
+   BIOVITA · experience.css
+   Responsable: DEV 3
+   Secciones: Proceso · Sabores (3D) · Impacto / ODS
+   ========================================================= */
+
+/* ===================== PROCESO ===================== */
+.process { background: linear-gradient(180deg, var(--ink) 0%, var(--forest) 100%); overflow: hidden; }
+
+.timeline { --progress: 0; position: relative; max-width: 1000px; margin-inline: auto; }
+.timeline::before, .timeline::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; margin-left: -1.5px; border-radius: 3px;
+}
+.timeline::before { background: rgba(255, 255, 255, .1); }
+.timeline::after {
+  background: linear-gradient(180deg, var(--mint), var(--mint-2), var(--flavor));
+  transform: scaleY(var(--progress)); transform-origin: top;
+  box-shadow: 0 0 18px rgba(58, 210, 159, .6);
+}
+
+.step { position: relative; display: grid; grid-template-columns: 1fr 1fr; column-gap: 110px; padding-bottom: 46px; }
+.step:last-child { padding-bottom: 0; }
+.step:nth-child(odd) .step__card { grid-column: 1; }
+.step:nth-child(even) .step__card { grid-column: 2; }
+
+.step__dot {
+  position: absolute; z-index: 1; left: 50%; top: 26px; transform: translateX(-50%);
+  width: 58px; height: 58px; display: grid; place-items: center; border-radius: 50%;
+  background: var(--ink); border: 2px solid rgba(255, 255, 255, .18);
+  font-family: var(--ff-display); font-weight: 800; color: rgba(255, 255, 255, .6);
+  transition: background .5s, color .5s, border-color .5s, box-shadow .6s, transform .6s var(--ease);
+}
+.step.is-active .step__dot {
+  background: var(--mint); border-color: var(--mint); color: var(--ink);
+  box-shadow: 0 0 0 10px rgba(58, 210, 159, .16);
+  transform: translateX(-50%) scale(1.08);
+}
+
+.step__card {
+  position: relative; padding: 30px; border-radius: var(--radius);
+  background: rgba(255, 255, 255, .04); border: 1px solid rgba(255, 255, 255, .08);
+  transition: background .5s, border-color .5s, transform .6s var(--ease);
+}
+.step.is-active .step__card { background: rgba(255, 255, 255, .07); border-color: rgba(58, 210, 159, .35); }
+.step__card:hover { transform: translateY(-6px); }
+.step__card > svg { width: 46px; height: 46px; padding: 10px; border-radius: 14px; background: rgba(58, 210, 159, .14); color: var(--mint); margin-bottom: 18px; }
+.step__card h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
+.step__card p { color: rgba(234, 245, 240, .72); }
+.chip {
+  display: inline-block; margin-top: 18px; padding: 6px 14px; border-radius: 999px;
+  font-size: .78rem; font-weight: 700; letter-spacing: .04em;
+  background: rgba(58, 210, 159, .14); color: var(--mint);
+}
+
+/* ===================== SABORES ===================== */
+.flavors {
+  overflow: hidden;
+  background: radial-gradient(circle at 28% 50%, var(--flavor-soft) 0%, var(--cream) 62%);
+}
+.flavors__bgword {
+  position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: center;
+  padding-top: clamp(20px, 3vw, 40px);
+  pointer-events: none; overflow: hidden;
+}
+.flavors__bgword span {
+  font-family: var(--ff-display); font-weight: 800; font-size: clamp(4rem, 13vw, 13rem); line-height: 1;
+  white-space: nowrap; letter-spacing: -.04em; color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--flavor) 22%, transparent);
+  transition: opacity .5s var(--ease), transform .7s var(--ease);
+}
+.flavors__bgword span.is-swapping { opacity: 0; transform: translateY(18%) scale(.96); }
+
+.flavors__grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 70px); align-items: center; }
+.flavors__visual { position: relative; height: min(76vh, 640px); }
+.flavors__visual .three-stage { cursor: grab; touch-action: pan-y; }
+.flavors__visual .three-stage:active { cursor: grabbing; }
+.flavors__hint {
+  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px;
+  background: rgba(255, 255, 255, .75); font-size: .82rem; font-weight: 600; color: var(--muted); white-space: nowrap;
+}
+.flavors__hint svg { width: 16px; height: 16px; }
+
+.flavors__info .h2 { margin: 18px 0 28px; }
+.flavor-detail [data-field] { transition: opacity .45s var(--ease), transform .55s var(--ease); }
+.flavor-detail.is-swapping [data-field] { opacity: 0; transform: translateY(18px); }
+.flavor-detail [data-field="name"] { transition-delay: .04s; }
+.flavor-detail [data-field="description"] { transition-delay: .08s; }
+.flavor-detail [data-field="notes"] { transition-delay: .12s; }
+.flavor-detail__tag { font-size: .8rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--flavor); }
+.flavor-detail__name { font-size: clamp(2.4rem, 4.4vw, 3.6rem); margin: 8px 0 14px; color: var(--ink); }
+.flavor-detail__desc { max-width: 480px; font-size: 1.06rem; color: var(--muted); }
+.flavor-detail__notes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.flavor-detail__notes li {
+  padding: 7px 14px; border-radius: 999px; font-size: .84rem; font-weight: 700;
+  background: color-mix(in srgb, var(--flavor) 14%, #fff); color: color-mix(in srgb, var(--flavor) 75%, #000);
+}
+
+.flavor-picker { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-width: 460px; margin-top: 34px; }
+.swatch {
+  display: flex; align-items: center; gap: 12px; padding: 13px 18px; border-radius: 16px;
+  background: #fff; border: 2px solid transparent; font-weight: 700; font-size: .95rem; text-align: left;
+  box-shadow: var(--shadow-sm);
+  transition: transform .4s var(--ease), border-color .4s, background .4s, color .4s;
+}
+.swatch i { flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--c); box-shadow: inset 0 -3px 0 rgba(0, 0, 0, .12); transition: transform .5s var(--ease); }
+.swatch:hover { transform: translateY(-3px); }
+.swatch:hover i { transform: scale(1.15); }
+.swatch.is-active { background: var(--ink); color: #fff; }
+.swatch.is-active i { transform: scale(1.2); box-shadow: 0 0 0 4px rgba(255, 255, 255, .25); }
+
+.flavors__season { display: flex; align-items: center; gap: 8px; margin-top: 22px; font-size: .9rem; font-weight: 600; color: var(--muted); }
+.flavors__season svg { width: 18px; height: 18px; color: var(--flavor); }
+
+/* ===================== IMPACTO ===================== */
+.impact { background: var(--cream); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.stat { padding-top: 26px; border-top: 2px solid var(--ink); }
+.stat__num {
+  display: flex; align-items: baseline; gap: 4px;
+  font-family: var(--ff-display); font-weight: 800; letter-spacing: -.03em; line-height: 1;
+  font-size: clamp(2.6rem, 5vw, 4.2rem); font-variant-numeric: tabular-nums;
+}
+.stat__num small { font-size: .5em; color: var(--forest-2); }
+.stat__label { margin-top: 12px; color: var(--muted); font-size: .95rem; max-width: 240px; }
+
+.ods { margin-top: clamp(70px, 9vw, 110px); }
+.ods__title { text-align: center; font-size: clamp(1.4rem, 2.6vw, 2rem); margin-bottom: 36px; }
+.ods__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.ods-card {
+  position: relative; overflow: hidden; padding: 34px 30px 32px; border-radius: var(--radius);
+  background: #fff; box-shadow: var(--shadow-sm);
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.ods-card::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 6px; background: var(--ods);
+  transition: height .6s var(--ease);
+}
+.ods-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+.ods-card__n {
+  display: grid; place-items: center; width: 60px; height: 60px; border-radius: 16px; margin-bottom: 20px;
+  background: var(--ods); color: #fff; font-family: var(--ff-display); font-weight: 800; font-size: 1.8rem;
+  transition: transform .6s var(--ease);
+}
+.ods-card:hover .ods-card__n { transform: rotate(-8deg) scale(1.06); }
+.ods-card h4 { font-size: 1.3rem; margin-bottom: 10px; }
+.ods-card p { color: var(--muted); font-size: .95rem; }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 960px) {
+  .flavors__grid { grid-template-columns: 1fr; }
+  .flavors__visual { height: 460px; }
+  .flavors__info { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .flavor-detail__desc { margin-inline: auto; }
+  .flavor-detail__notes { justify-content: center; }
+  .stats { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+  .ods__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .timeline::before, .timeline::after { left: 28px; }
+  .step { grid-template-columns: 1fr; padding-left: 78px; }
+  .step:nth-child(odd) .step__card, .step:nth-child(even) .step__card { grid-column: 1; }
+  .step__dot { left: 28px; width: 50px; height: 50px; }
+}
+@media (max-width: 480px) {
+  .stats { grid-template-columns: 1fr; }
+  .flavor-picker { grid-template-columns: 1fr 1fr; }
+  .swatch { padding: 11px 12px; font-size: .86rem; }
+}
