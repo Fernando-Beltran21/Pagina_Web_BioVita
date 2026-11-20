@@ -6,9 +6,9 @@
    ========================================================= */
 
 /* ---------- Propiedades animables (permiten transicionar colores de sabor) ---------- */
-@property --flavor      { syntax: '<color>'; inherits: true; initial-value: #e0325f; }
-@property --flavor-2    { syntax: '<color>'; inherits: true; initial-value: #ff9fb5; }
-@property --flavor-soft { syntax: '<color>'; inherits: true; initial-value: #ffe3ea; }
+@property --flavor      { syntax: '<color>'; inherits: true; initial-value: #ef6f6c; }
+@property --flavor-2    { syntax: '<color>'; inherits: true; initial-value: #ffc0b8; }
+@property --flavor-soft { syntax: '<color>'; inherits: true; initial-value: #ffebe7; }
 
 :root {
   /* Paleta */
@@ -24,11 +24,12 @@
   --muted: #5d7069;
   --line: rgba(13, 38, 32, .12);
   --danger: #ff5d5d;
+  --brand-red: #e2574c;   /* color de "vita" en el logotipo */
 
   /* Color del sabor activo (lo cambia experience.js) */
-  --flavor: #e0325f;
-  --flavor-2: #ff9fb5;
-  --flavor-soft: #ffe3ea;
+  --flavor: #ef6f6c;
+  --flavor-2: #ffc0b8;
+  --flavor-soft: #ffebe7;
 
   /* Tipografía */
   --ff-display: 'Fraunces', Georgia, 'Times New Roman', serif;
@@ -157,7 +158,7 @@ h3 { font-weight: 600; }
 }
 @keyframes fillDrop { to { transform: translateY(0); } }
 .preloader__brand { font-family: var(--ff-display); font-size: 1.6rem; font-weight: 800; letter-spacing: -.02em; opacity: 0; animation: fadeUp .8s var(--ease) .4s forwards; }
-.preloader__brand span { color: var(--mint); }
+.preloader__brand span { color: #ff7b6b; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
 /* ---------- Barra de progreso de scroll ---------- */
@@ -186,9 +187,10 @@ h3 { font-weight: 600; }
 .logo { display: flex; align-items: center; gap: 10px; font-family: var(--ff-display); font-weight: 800; font-size: 1.45rem; letter-spacing: -.02em; color: var(--ink); }
 .logo svg { width: 34px; height: 34px; color: var(--forest-2); transition: transform .6s var(--ease); }
 .logo:hover svg { transform: rotate(-12deg) scale(1.08); }
-.logo b { color: var(--forest-2); font-weight: 800; }
+.logo b { color: var(--brand-red); font-weight: 800; }
 .logo--light { color: #fff; }
-.logo--light svg, .logo--light b { color: var(--mint); }
+.logo--light svg { color: var(--mint); }
+.logo--light b { color: #ff7b6b; }
 
 .nav__links { display: flex; gap: 4px; margin-left: auto; }
 .nav__links a {
@@ -209,7 +211,8 @@ h3 { font-weight: 600; }
 @media (max-width: 1020px) {
   .nav.is-open { -webkit-backdrop-filter: none; backdrop-filter: none; background: transparent; box-shadow: none; transform: none; }
   .nav.is-open .logo { color: #fff; position: relative; z-index: 2; }
-  .nav.is-open .logo svg, .nav.is-open .logo b { color: var(--mint); }
+  .nav.is-open .logo svg { color: var(--mint); }
+  .nav.is-open .logo b { color: #ff7b6b; }
 
   .nav__links {
     position: fixed; inset: 0; margin: 0;
@@ -261,7 +264,7 @@ h3 { font-weight: 600; }
 }
 .bottle-fallback span {
   position: absolute; left: -3px; right: -3px; top: 46%; padding: 18px 0;
-  background: var(--flavor); color: #fff; text-align: center;
+  background: #4f7f2f; color: #c4e08a; text-align: center;
   font-family: var(--ff-display); font-weight: 800; font-size: 1.5rem;
 }
 @keyframes floaty { 50% { transform: translate(-50%, calc(-50% - 14px)); } }

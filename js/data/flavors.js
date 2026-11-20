@@ -2,20 +2,34 @@
    BIOVITA · flavors.js  (datos compartidos)
    Responsable: DEV 3
    Lo consumen: experience.js (UI) y los módulos Three.js.
+   El primer sabor del arreglo es el sabor inicial de la página.
    ========================================================= */
 window.BIOVITA = window.BIOVITA || {};
 
 window.BIOVITA.flavors = [
   {
+    id: 'guayaba',
+    name: 'Guayaba',
+    tagline: 'De Calvillo, Aguascalientes',
+    description: 'Nuestro sabor insignia, con guayaba de Calvillo: aromático, dulce y lleno de carácter local.',
+    notes: ['Guayaba de Calvillo', 'Aromático', 'Dulce natural'],
+    color: '#ef6f6c',    // acento de la UI
+    light: '#ffc0b8',    // fondos suaves
+    soft: '#ffebe7',     // degradados
+    liquid: '#f4b6b0',   // color del líquido 3D
+    labelAccent: '#ff7b6b' // color de "vita" en la etiqueta verde
+  },
+  {
     id: 'frutos-rojos',
     name: 'Frutos Rojos',
     tagline: 'Intenso y antioxidante',
-    description: 'Fresa, frambuesa y zarzamora sobre una base cremosa y ligeramente ácida. Nuestro sabor estrella.',
+    description: 'Fresa, frambuesa y zarzamora sobre una base cremosa y ligeramente ácida.',
     notes: ['Fresa', 'Frambuesa', 'Zarzamora'],
-    color: '#e0325f',   // etiqueta / acento
-    light: '#ff9fb5',   // fondos suaves
-    soft: '#ffe3ea',    // degradados
-    liquid: '#f6b3c3'   // color del líquido 3D
+    color: '#e0325f',
+    light: '#ff9fb5',
+    soft: '#ffe3ea',
+    liquid: '#f6b3c3',
+    labelAccent: '#ff5c85'
   },
   {
     id: 'mango',
@@ -26,18 +40,8 @@ window.BIOVITA.flavors = [
     color: '#f59e0b',
     light: '#ffd27a',
     soft: '#fff2d4',
-    liquid: '#ffd98c'
-  },
-  {
-    id: 'guayaba',
-    name: 'Guayaba',
-    tagline: 'Regional y aromático',
-    description: 'Inspirado en la guayaba de Calvillo, Aguascalientes: aromático, dulce y lleno de carácter.',
-    notes: ['Guayaba', 'Floral', 'Dulce natural'],
-    color: '#ef6f6c',
-    light: '#ffc0b8',
-    soft: '#ffebe7',
-    liquid: '#ffc6bd'
+    liquid: '#ffd98c',
+    labelAccent: '#ffb42e'
   },
   {
     id: 'citricos',
@@ -48,7 +52,8 @@ window.BIOVITA.flavors = [
     color: '#7cc22e',
     light: '#d4f58a',
     soft: '#f1fbdc',
-    liquid: '#e6f5b0'
+    liquid: '#e6f5b0',
+    labelAccent: '#ffe14d'
   }
 ];
 

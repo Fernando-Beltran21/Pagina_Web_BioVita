@@ -54,6 +54,30 @@
 }
 .plans__note { margin-top: 30px; text-align: center; font-size: .85rem; color: var(--muted); }
 
+/* Estrategia de promoción */
+.promo { margin-top: clamp(70px, 9vw, 110px); }
+.promo__title { text-align: center; font-size: clamp(1.8rem, 3.6vw, 2.8rem); margin-bottom: 36px; }
+.promo__grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 22px; }
+.promo-card {
+  display: flex; flex-direction: column; gap: 20px; padding: 30px 28px; border-radius: var(--radius);
+  background: var(--cream); border: 1px solid var(--line);
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.promo-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+.promo-card__tag {
+  align-self: flex-start; padding: 6px 14px; border-radius: 999px;
+  background: var(--flavor); color: #fff; font-size: .78rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+}
+.promo-card ul { display: grid; gap: 16px; }
+.promo-card li { display: flex; gap: 14px; align-items: flex-start; font-size: .92rem; color: var(--muted); }
+.promo-card li b { display: block; color: var(--ink); font-size: 1rem; }
+.promo-card li > svg { flex: none; width: 40px; height: 40px; padding: 9px; border-radius: 12px; background: #fff; color: var(--forest-2); box-shadow: var(--shadow-sm); }
+.promo-card .btn { margin-top: auto; align-self: flex-start; }
+.promo-card--accent { background: var(--ink); border-color: transparent; }
+.promo-card--accent li { color: rgba(234, 245, 240, .72); }
+.promo-card--accent li b { color: #fff; }
+.promo-card--accent li > svg { background: var(--mint); color: var(--ink); }
+
 /* ===================== EQUIPO ===================== */
 .team { background: var(--cream); }
 .team-filter, .qty-toggle { --gap: 8px; }
@@ -180,6 +204,7 @@
 .footer { position: relative; overflow: hidden; padding: 90px 0 30px; background: var(--ink); color: rgba(234, 245, 240, .72); }
 .footer__top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px; }
 .footer__brand p { margin: 18px 0 22px; max-width: 340px; font-size: .95rem; }
+.footer__slogan { display: block; margin-bottom: 6px; font-family: var(--ff-display); font-size: 1.4rem; font-weight: 600; color: #fff; }
 .footer__social { display: flex; gap: 10px; }
 .footer__social a { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .15); transition: background .35s, color .35s, transform .4s var(--ease); }
 .footer__social a:hover { background: var(--mint); color: var(--ink); transform: translateY(-4px); }
@@ -208,6 +233,7 @@
   .footer__top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 900px) {
+  .promo__grid { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
   .plans__grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
   .plan--featured, .plan--featured:hover { transform: none; }
   .faq__grid, .contact__grid { grid-template-columns: 1fr; }

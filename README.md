@@ -1,6 +1,8 @@
-# BioVita · Landing page
+# Biovita · Landing page
 
-Landing page promocional de **BioVita**, una bebida funcional lacto-fermentada (estilo Calpis) hecha con lactosuero dulce revalorizado.
+Landing page promocional de **Biovita** — *Sabor con vida* —, una bebida fermentada de lactosuero fortificada con probióticos, vitaminas y minerales.
+
+> La información del sitio está alineada con la presentación oficial del proyecto (problema, producto, diferenciadores, proceso de 10 pasos, TAM/SAM/SOM y estrategia de promoción).
 Stack: **HTML + CSS + JavaScript (vanilla) + Three.js** (vía CDN, sin build).
 
 ---
@@ -29,13 +31,13 @@ python -m http.server 5500
 | 0 | Preloader + Nav | Primera impresión, navegación | Gota que se llena, cortina con `clip-path`, nav que se oculta al bajar, menú móvil circular |
 | 1 | **Hero** | Captar atención y explicar qué es | Botella 3D flotante con cápsulas probióticas y burbujas, reacciona al mouse y al scroll |
 | 2 | **Problema** | Generar conciencia (lactosuero + salud digestiva) | Barras de DQO animadas, títulos palabra por palabra |
-| 3 | **Solución** | Economía circular | Switch *Modelo lineal → Modelo BioVita* que se transforma solo al verlo |
+| 3 | **Solución** | Economía circular + ¿Qué nos hace diferentes? | Switch *Modelo lineal → Modelo Biovita* que se transforma solo al verlo |
 | 4 | **Beneficios** | Propuesta de valor del producto | Tarjetas con efecto tilt 3D y luz que sigue el cursor |
 | 5 | Marquee | Separador de marca | Banda inclinada en loop infinito |
-| 6 | **Proceso** | Generar confianza (inocuidad, NOM-251) | Línea de tiempo que se llena con el scroll y activa cada paso |
+| 6 | **Proceso** | Los 10 pasos de producción (NOM-251 / NOM-051, cadena de frío 2–6 °C) | Línea de tiempo en zig-zag que se llena con el scroll |
 | 7 | **Sabores** | Deseo de producto | Botella 3D arrastrable; al cambiar de sabor gira 360°, cambia de color y toda la página se re-tiñe |
-| 8 | **Impacto + ODS** | Credibilidad con datos | Contadores animados, tarjetas ODS 3, 9 y 12 |
-| 9 | **Planes** | Conversión | Selector de botellas/semana con precio animado |
+| 8 | **Mercado + ODS** | TAM (100,153), SAM (902,378 L/año) y SOM (35 clientes · 7,000 botellas/mes) | Embudo animado, contadores, tarjetas ODS 3, 9 y 12 |
+| 9 | **Planes + Promoción** | Conversión y canales Online / Offline / Fidelizar | Selector de botellas/semana con precio animado |
 | 10 | **Equipo** | Humanizar la marca | Filtro por carrera con transición |
 | 11 | **FAQ** | Resolver objeciones (¿sabe a queso?, ¿lactosa?) | Acordeón con altura animada |
 | 12 | **Contacto / lista de espera** | Captar leads | Validación en vivo, pantalla de éxito con check animado |
@@ -119,5 +121,5 @@ biovita-landing/
 ## ⚠️ Pendientes antes de publicar
 - Precios ($25, $90/mes…) son **estimados**; validarlos con la encuesta (rango $15–$35).
 - El formulario no envía a ningún servidor: conectar con Formspree, Google Forms o Firebase (`conversion.js`, línea marcada `TODO`).
-- Enlaces de Instagram / TikTok en el footer apuntan a `#`.
+- Enlaces de Instagram, TikTok y canal de WhatsApp en el footer apuntan a `#`.
 - Las afirmaciones de salud deben revisarse conforme a la NOM-051-SCFI/SSA1-2010.

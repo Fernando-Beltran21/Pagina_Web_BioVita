@@ -2,7 +2,7 @@
    BIOVITA · bottle.js  (módulo compartido de Three.js)
    Responsable: DEV 1 (lo reutiliza DEV 3)
    Exporta utilidades para crear el renderer, el entorno de
-   iluminación y la botella 3D procedimental de BioVita.
+   iluminación y la botella 3D procedimental de Biovita.
    ========================================================= */
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
@@ -17,7 +17,7 @@ export const isWebGLAvailable = () => {
 export const getCurrentFlavor = () => {
   const B = window.BIOVITA || {};
   return B.currentFlavor || (B.flavors && B.flavors[0]) || {
-    name: 'Frutos Rojos', color: '#e0325f', light: '#ff9fb5', liquid: '#f6b3c3'
+    name: 'Guayaba', color: '#ef6f6c', light: '#ffc0b8', liquid: '#f4b6b0', labelAccent: '#ff7b6b'
   };
 };
 
@@ -67,40 +67,65 @@ export function createShadow(size = 2.4) {
 /* ---------------------------------------------------------
    Botella procedimental
    --------------------------------------------------------- */
+const accentOf = (f) => f.labelAccent || f.color;
 const LABEL_W = 2048;
 const LABEL_H = 405;
 
-function drawLabel(ctx, color, name) {
+/* Etiqueta basada en el diseño real de Biovita:
+   fondo verde, "Bio" verde claro y "vita" en el color de acento del sabor. */
+function drawLabel(ctx, accent, name) {
   const w = LABEL_W, h = LABEL_H, cx = w / 2;
   ctx.clearRect(0, 0, w, h);
-  ctx.fillStyle = color;
+
+  const bg = ctx.createLinearGradient(0, 0, 0, h);
+  bg.addColorStop(0, '#5a8c34');
+  bg.addColorStop(1, '#3f6b24');
+  ctx.fillStyle = bg;
   ctx.fillRect(0, 0, w, h);
 
-  // Lunares (homenaje al estilo Calpis)
-  ctx.fillStyle = 'rgba(255,255,255,0.16)';
+  // Textura sutil de puntos
+  ctx.fillStyle = 'rgba(255,255,255,0.07)';
   for (let row = 0, y = 26; y < h + 20; y += 58, row++) {
     for (let x = row % 2 ? 29 : 0; x < w + 20; x += 58) {
-      ctx.beginPath(); ctx.arc(x, y, 9, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, 7, 0, Math.PI * 2); ctx.fill();
     }
   }
 
-  // Panel central
-  ctx.fillStyle = 'rgba(255,255,255,0.12)';
-  ctx.beginPath();
-  if (ctx.roundRect) ctx.roundRect(cx - 420, 30, 840, h - 60, 40); else ctx.rect(cx - 420, 30, 840, h - 60);
-  ctx.fill();
+  ctx.textBaseline = 'alphabetic';
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#e9f3d6';
+  ctx.font = '700 28px "Plus Jakarta Sans", system-ui, sans-serif';
+  ctx.fillText('BEBIDA FERMENTADA DE LACTOSUERO', cx, 66);
+
+  // Logotipo "Bio" + "vita"
+  ctx.font = '800 150px Fraunces, Georgia, serif';
+  const wBio = ctx.measureText('Bio').width;
+  const wVita = ctx.measureText('vita').width;
+  let x = cx - (wBio + wVita) / 2;
+  ctx.textAlign = 'left';
+  ctx.fillStyle = '#c4e08a';
+  ctx.fillText('Bio', x, 212);
+  ctx.fillStyle = accent;
+  ctx.fillText('vita', x + wBio, 212);
+
+  // Hojita sobre la "i"
+  ctx.save();
+  ctx.translate(x + wBio * 0.78, 78);
+  ctx.fillStyle = '#9fd25a';
+  ctx.beginPath(); ctx.ellipse(-12, 0, 11, 22, -0.6, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(12, -4, 11, 22, 0.6, 0, Math.PI * 2); ctx.fill();
+  ctx.restore();
 
   ctx.textAlign = 'center';
-  ctx.fillStyle = '#ffffff';
-  ctx.font = '600 30px "Plus Jakarta Sans", system-ui, sans-serif';
-  ctx.fillText('BEBIDA FUNCIONAL LACTO-FERMENTADA', cx, 92);
-  ctx.font = '800 150px Fraunces, Georgia, serif';
-  ctx.fillText('BioVita', cx, 235);
-  ctx.font = '800 44px "Plus Jakarta Sans", system-ui, sans-serif';
-  ctx.fillText(name.toUpperCase(), cx, 305);
+  ctx.fillStyle = '#e9f3d6';
   ctx.font = '600 26px "Plus Jakarta Sans", system-ui, sans-serif';
-  ctx.fillStyle = 'rgba(255,255,255,0.85)';
-  ctx.fillText('PROBIÓTICOS · VITAMINAS · 350 ml', cx, 352);
+  ctx.fillText('Fortificada con probióticos, vitaminas y minerales', cx, 262);
+  ctx.fillStyle = accent;
+  ctx.font = '800 40px "Plus Jakarta Sans", system-ui, sans-serif';
+  ctx.fillText(name.toUpperCase(), cx, 318);
+  ctx.fillStyle = '#e9f3d6';
+  ctx.font = '700 26px "Plus Jakarta Sans", system-ui, sans-serif';
+  ctx.fillText('CONT. NET. 350 mL', cx, 366);
 }
 
 export function createBottle(renderer, flavor = getCurrentFlavor()) {
@@ -134,7 +159,7 @@ export function createBottle(renderer, flavor = getCurrentFlavor()) {
   const canvas = document.createElement('canvas');
   canvas.width = LABEL_W; canvas.height = LABEL_H;
   const ctx = canvas.getContext('2d');
-  drawLabel(ctx, flavor.color, flavor.name);
+  drawLabel(ctx, accentOf(flavor), flavor.name);
   const labelTex = new THREE.CanvasTexture(canvas);
   labelTex.colorSpace = THREE.SRGBColorSpace;
   labelTex.wrapS = THREE.RepeatWrapping;
@@ -176,8 +201,8 @@ export function createBottle(renderer, flavor = getCurrentFlavor()) {
     t: 1,
     duration: 0.9,
     fromLiquid: new THREE.Color(flavor.liquid), toLiquid: new THREE.Color(flavor.liquid),
-    fromLabel: new THREE.Color(flavor.color), toLabel: new THREE.Color(flavor.color),
-    labelColor: new THREE.Color(flavor.color),
+    fromLabel: new THREE.Color(accentOf(flavor)), toLabel: new THREE.Color(accentOf(flavor)),
+    labelColor: new THREE.Color(accentOf(flavor)),
     name: flavor.name, nextName: flavor.name
   };
 
@@ -185,7 +210,7 @@ export function createBottle(renderer, flavor = getCurrentFlavor()) {
     state.fromLiquid.copy(liquidMat.color);
     state.fromLabel.copy(state.labelColor);
     state.toLiquid.set(f.liquid);
-    state.toLabel.set(f.color);
+    state.toLabel.set(accentOf(f));
     state.nextName = f.name;
     state.t = 0;
   }

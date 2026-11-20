@@ -126,7 +126,7 @@
 
       const data = Object.fromEntries(new FormData(form));
       // TODO (DEV 4): conectar con un backend real (Formspree, Google Forms, Firebase…)
-      console.info('[BioVita] Nuevo registro', data);
+      console.info('[Biovita] Nuevo registro', data);
 
       const btn = form.querySelector('[type="submit"]');
       btn.disabled = true;
