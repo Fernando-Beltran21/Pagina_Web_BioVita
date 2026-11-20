@@ -35,7 +35,7 @@ python -m http.server 5500
 | 4 | **Beneficios** | Propuesta de valor del producto | Tarjetas con efecto tilt 3D y luz que sigue el cursor |
 | 5 | Marquee | Separador de marca | Banda inclinada en loop infinito |
 | 6 | **Proceso** | Los 10 pasos de producción (NOM-251 / NOM-051, cadena de frío 2–6 °C) | Línea de tiempo en zig-zag que se llena con el scroll |
-| 7 | **Sabores** | Deseo de producto | Botella 3D arrastrable; al cambiar de sabor gira 360°, cambia de color y toda la página se re-tiñe |
+| 7 | **Sabor** | Deseo de producto | Botella 3D arrastrable con el sabor único: guayaba de Calvillo |
 | 8 | **Mercado + ODS** | TAM (100,153), SAM (902,378 L/año) y SOM (35 clientes · 7,000 botellas/mes) | Embudo animado, contadores, tarjetas ODS 3, 9 y 12 |
 | 9 | **Planes + Promoción** | Conversión y canales Online / Offline / Fidelizar | Selector de botellas/semana con precio animado |
 | 10 | **Equipo** | Humanizar la marca | Filtro por carrera con transición |
@@ -64,7 +64,7 @@ Cada dev es **dueño de sus archivos**, así casi no hay conflictos en Git. En `
 ### DEV 3 · Experiencia: Proceso, Sabores 3D, Impacto
 - `css/experience.css`, `js/sections/experience.js`, `js/data/flavors.js`
 - `js/three/flavor-scene.js` (reutiliza `bottle.js` de DEV 1)
-- Timeline ligada al scroll, selector de sabores, contadores.
+- Timeline ligada al scroll, escena de sabor (guayaba), contadores.
 
 ### DEV 4 · Conversión: Planes, Equipo, FAQ, Contacto, Footer + QA
 - `css/conversion.css`, `js/sections/conversion.js`

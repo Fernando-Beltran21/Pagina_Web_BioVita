@@ -2,7 +2,7 @@
    BIOVITA · experience.js
    Responsable: DEV 3
    - Línea de tiempo del proceso ligada al scroll
-   - Selector de sabores (actualiza colores globales y emite
+   - Sabor único (guayaba): aplica colores globales y emite
      el evento "biovita:flavor" que escuchan las escenas 3D)
    - Contadores animados de Impacto
    ========================================================= */
@@ -36,7 +36,6 @@
   /* ---------- Selector de sabores ---------- */
   const detail = document.getElementById('flavorDetail');
   const bgWord = document.getElementById('flavorBgWord');
-  const swatches = [...document.querySelectorAll('.swatch[data-flavor]')];
   const section = document.getElementById('sabores');
 
   function renderDetail(f) {
@@ -55,12 +54,6 @@
     root.style.setProperty('--flavor', f.color);
     root.style.setProperty('--flavor-2', f.light);
     root.style.setProperty('--flavor-soft', f.soft);
-
-    swatches.forEach((s) => {
-      const on = s.dataset.flavor === id;
-      s.classList.toggle('is-active', on);
-      s.setAttribute('aria-pressed', String(on));
-    });
 
     if (silent) { renderDetail(f); bgWord.textContent = f.name; return; }
 
@@ -81,28 +74,7 @@
   if (detail && flavors.length) {
     setFlavor(flavors[0].id, { silent: true });
 
-    // Autoplay mientras la sección está visible y el usuario no ha elegido
-    let autoplay = true, timer = null;
-    const next = () => {
-      const i = flavors.findIndex((f) => f.id === B.currentFlavor.id);
-      setFlavor(flavors[(i + 1) % flavors.length].id);
-    };
-    const stopAuto = () => { autoplay = false; clearInterval(timer); };
-
-    swatches.forEach((s) => s.addEventListener('click', () => { stopAuto(); setFlavor(s.dataset.flavor); }));
-
-    if (!B.reduceMotion) {
-      new IntersectionObserver((entries) => {
-        clearInterval(timer);
-        if (entries[0].isIntersecting && autoplay) timer = setInterval(next, 4500);
-      }, { threshold: 0.4 }).observe(section);
-    }
   }
-
-  // Si el usuario elige sabor en el formulario, sincronizamos (detalle de UX)
-  document.querySelectorAll('input[name="flavor"]').forEach((r) =>
-    r.addEventListener('change', () => r.checked && setFlavor(r.value))
-  );
 
   /* ---------- Contadores ---------- */
   const counters = document.querySelectorAll('.counter[data-to]');
